@@ -1,28 +1,38 @@
 import styled from "styled-components";
 
-export const ControlsStyled = styled.div`
+interface ButtonProps {
+  backgroundColor?: string;
+}
+
+export const ControlsStyled = styled.div<ButtonProps>`
   position: absolute;
   bottom: 0;
   left: 260px;
   max-width: 60px;
   height: 250px;
-  background-color: red;
+
+  /* background-color: red; */
   z-index: 102;
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: end;
+  gap: 0.5rem;
+`;
 
-  button {
-    width: 40px;
-    height: 40px;
+export const Button = styled.button<ButtonProps>`
+  width: 40px;
+  height: 40px;
 
-    background-color: #f68d21;
-    border: solid 3px #fff2bd;
-    border-radius: 1rem;
-  }
+  background-color: ${(props) => props.backgroundColor};
+  border: solid 3px #fff2bd;
+  border-radius: 1rem;
 
-  button i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
     font-size: 1.1rem;
     color: #fff;
   }

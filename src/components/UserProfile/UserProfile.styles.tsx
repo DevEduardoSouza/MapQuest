@@ -61,7 +61,7 @@ export const RightContainer = styled.div<BoxProps>`
   display: flex;
   flex-direction: column;
   margin-top: 0.3rem;
-  margin-left: -0.3rem;
+  margin-left: -0.5rem;
 `;
 
 export const RightContent = styled.div<BoxProps>`

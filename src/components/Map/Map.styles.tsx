@@ -10,6 +10,7 @@ export const MapStyled = styled.div`
   width: 250px;
   height: 250px;
   z-index: 101;
+  border-radius: 1rem;
 `;
 
 export const PanoramaStyled = styled.div`

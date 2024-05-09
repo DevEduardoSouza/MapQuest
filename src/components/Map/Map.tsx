@@ -89,8 +89,9 @@ function Map() {
 
   return (
     <Container>
-      <PanoramaStyled id="panorama"></PanoramaStyled>
-      <MapStyled id="map"></MapStyled>
+      <PanoramaStyled id="panorama" />
+
+      <MapStyled id="map" />
       <Controls resetToInitialPosition={resetToInitialPosition} />
 
       <UserProfile
