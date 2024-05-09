@@ -54,6 +54,7 @@ interface BoxProps {
   width?: number;
   height?: number;
   backgroundColor?: string;
+  fontSize?: number;
 }
 
 export const RightContainer = styled.div<BoxProps>`
@@ -81,7 +82,7 @@ export const RightContent = styled.div<BoxProps>`
     position: absolute;
     left: 0;
     border-radius: 0 0.8rem 0.8rem 0;
-    width: 50%;
+    width: 100%;
     height: inherit;
     background-color: ${(props) => props.backgroundColor};
     display: flex;
@@ -93,17 +94,18 @@ export const RightContent = styled.div<BoxProps>`
     z-index: 101;
     text-align: center;
     color: #feffff;
-    font-size: 0.8rem;
+    font-size: ${(props) => `${props.fontSize}px`};
     font-weight: bolder;
     text-shadow: 1px 1px 0px #000;
   }
 
   i {
     position: absolute;
-    right: -25px;
+    right: -24px;
 
     color: #f8494c;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bolder;
+    text-shadow: 1px 1px 0px #00000060;
   }
 `;

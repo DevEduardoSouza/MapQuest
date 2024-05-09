@@ -11,3 +11,9 @@ body {
   height: 100vh;
   font-family: "Poppins", sans-serif;
 }
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
