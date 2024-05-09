@@ -1,4 +1,9 @@
-import { Container, LeftContent, RightContent } from "./UserProfile.styles.jsx";
+import {
+  Container,
+  LeftContent,
+  RightContainer,
+  RightContent,
+} from "./UserProfile.styles.jsx";
 
 interface IUser {
   name: string;
@@ -18,10 +23,17 @@ const UserProfile = ({ name, level, srcImg }: IUser) => {
         </div>
       </LeftContent>
 
-      <RightContent>
-        <span id="life">5000/5000</span>
-        <span id="user-name">{name}</span>
-      </RightContent>
+      <RightContainer>
+        <RightContent width={150} height={30} backgroundColor="#f8494c">
+          <div className="bar"></div>
+          <div className="number">2500/5000</div>
+          <i className="bi bi-heart-fill"></i>
+        </RightContent>
+        <RightContent width={120} height={20} backgroundColor="#508e60">
+          <div className="bar"></div>
+          <div className="number">400/800</div>
+        </RightContent>
+      </RightContainer>
     </Container>
   );
 };

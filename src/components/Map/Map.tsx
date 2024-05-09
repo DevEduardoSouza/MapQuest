@@ -76,7 +76,7 @@ function Map() {
       <UserProfile
         name="John"
         level={5}
-        srcImg="https://www.shareicon.net/data/512x512/2015/09/18/103160_man_512x512.png"
+        srcImg="https://cdn-icons-png.flaticon.com/512/4202/4202831.png"
       />
     </Container>
   );
