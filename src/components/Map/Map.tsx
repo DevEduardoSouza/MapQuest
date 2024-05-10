@@ -15,24 +15,10 @@ interface City {
   admin2: string;
 }
 
-// interface IUser {
-//   name: string;
-//   email: string;
-//   id: string;
-//   level: number;
-//   srcImg: string;
-// }
-
-// interface IGame {
-//   id: string;
-//   players: IUser[];
-//   life: number; // Vida da partida
-// }
-
 function Map() {
   const [gameLife, setGameLife] = useState<number>(5000);
   const [randomCityInitial, setRandomCityInitial] = useState<City | string>("");
-
+  const [marker, setMarker] = useState<google.maps.Marker>();
   const [panorama, setPanorama] =
     useState<google.maps.StreetViewPanorama>(null);
 
@@ -77,7 +63,23 @@ function Map() {
 
       setPanorama(panorama);
 
+      const marker = new google.maps.Marker({
+        position: null,
+        map: map,
+        title: "Hello World!",
+        icon: "https://developers.google.com/static/maps/documentation/javascript/images/default-marker.png?hl=pt-br",
+        draggable: true,
+      });
+
+      map.addListener("click", (event: google.maps.MouseEvent) => {
+        // Atualizar a posição do marcador para a posição onde ocorreu o clique
+        marker.setPosition(event.latLng);
+        setMarker(marker); // Atualiza o estado do marcador atual
+        console.log(marker.getPosition());
+      });
+
       map.setStreetView(panorama);
+      setMarker(marker); // Define o marcador inicial
     }
 
     if (window.google && window.google.maps) {
