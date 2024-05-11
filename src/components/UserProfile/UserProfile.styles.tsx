@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+interface BoxProps {
+  width?: number;
+  height?: number;
+  backgroundColor?: string;
+  fontSize?: number;
+}
+
 export const Container = styled.div`
   position: absolute;
   top: 10px;
@@ -50,18 +57,11 @@ export const LeftContent = styled.div`
   }
 `;
 
-interface BoxProps {
-  width?: number;
-  height?: number;
-  backgroundColor?: string;
-  fontSize?: number;
-}
-
 export const RightContainer = styled.div<BoxProps>`
   display: flex;
   flex-direction: column;
   margin-top: 0.3rem;
-  margin-left: -0.5rem;
+  margin-left: -0.3rem;
 `;
 
 export const RightContent = styled.div<BoxProps>`

@@ -5,13 +5,9 @@ interface ButtonProps {
 }
 
 export const ControlsStyled = styled.div<ButtonProps>`
-  position: absolute;
-  bottom: 0;
-  left: 260px;
   max-width: 60px;
   height: 250px;
 
-  /* background-color: red; */
   z-index: 102;
 
   display: flex;
