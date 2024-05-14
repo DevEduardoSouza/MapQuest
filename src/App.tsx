@@ -1,10 +1,9 @@
-
-import Map from "./components/Map";
+import { AppRoutes } from "./routes/AppRoutes";
 
 function App() {
   return (
     <>
-      <Map />
+      <AppRoutes />
     </>
   );
 }
