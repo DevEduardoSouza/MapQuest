@@ -20,7 +20,7 @@ export const ContainerCounterDisplay = styled.div<CounterDisplayProps>`
   
 
   min-width: 150px;
-  padding: 0.5rem;
+  padding: 0.2rem;
   border-radius: 8px;
 
   display: flex;
@@ -34,10 +34,7 @@ export const ContainerCounterDisplay = styled.div<CounterDisplayProps>`
 
 export const Icon = styled.div<IconProps>`
   i {
-    position: absolute;
-    top: -2px;
-    left: -5px;
-    font-size: 1.9rem;
+    font-size: 1.5rem;
     color: ${(props) => props.color || "#000"};
   }
 `;

@@ -1,111 +1,103 @@
 import styled from "styled-components";
 
-interface BoxProps {
-  width?: number;
-  height?: number;
-  backgroundColor?: string;
-  fontSize?: number;
+interface LevelProps {
+  color: string;
+  width: number;
 }
 
-export const Container = styled.div`
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 101;
-
+export const Profile = styled.div`
   display: flex;
+  align-items: center;
+  position: relative;
 `;
 
-export const LeftContent = styled.div`
-  position: relative;
-  width: 50px;
-  height: 50px;
-  padding: 0.2rem;
+export const Avatar = styled.div`
+  width: 60px;
+  height: 60px;
 
-  border-radius: 1.2rem;
-  border: solid 5px #f1f1f1;
+  border-radius: 50%;
+  border: solid 4px #fff;
   background-color: #53b0f9;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
   z-index: 101;
 
   img {
     width: 100%;
     object-fit: cover;
   }
+`;
 
-  #user-level {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: -8px;
 
-    font-weight: bold;
-    color: #f1f1f1;
-    background-color: #508e60;
-
-    position: absolute;
-    right: -15px;
-    bottom: 0px;
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-
-    padding: 0.3rem;
-    font-size: 0.8rem;
-
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
-      rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
-      rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  .name {
+    font-weight: 500;
+    font-size: 0.7rem;
+    margin-left: 15px;
   }
 `;
 
-export const RightContainer = styled.div<BoxProps>`
+export const LevelNumber = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 0.3rem;
-  margin-left: -0.3rem;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #1cb7f9;
+  color: #fff;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+
+  position: absolute;
+  left: 50px;
+  bottom: 5px;
+  z-index: 102;
 `;
 
-export const RightContent = styled.div<BoxProps>`
-  width: ${(props) => `${props.width}px`};
-  height: ${(props) => `${props.height}px`};
-  border-radius: 0 0.8rem 0.8rem 0;
+export const Bar = styled.div`
+  width: 120px;
+  height: 23px;
+  border-radius: 0 6px 8px 0;
 
-  background-color: #d9e0ea;
-  border: solid 3px #feffff;
+  background-color: #e5e5e5;
+  border: solid 3px #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+  z-index: 100;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  position: relative;
-
-  .bar {
-    position: absolute;
-    left: 0;
-    border-radius: 0 0.8rem 0.8rem 0;
-    width: 100%;
-    height: inherit;
-    background-color: ${(props) => props.backgroundColor};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .number {
+    position: relative;
     z-index: 101;
-    text-align: center;
-    color: #feffff;
-    font-size: ${(props) => `${props.fontSize}px`};
-    font-weight: bolder;
-    text-shadow: 1px 1px 0px #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.7rem;
   }
+`;
 
-  i {
-    position: absolute;
-    right: -24px;
+export const Level = styled.div<LevelProps>`
+  background-color: ${(props) => props.color};
 
-    color: #f8494c;
-    font-size: 1rem;
-    font-weight: bolder;
-    text-shadow: 1px 1px 0px #00000060;
-  }
+  width: ${(props) => props.width}%;
+  height: 100%;
+
+  border-radius: 0 6px 8px 0;
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
 `;
