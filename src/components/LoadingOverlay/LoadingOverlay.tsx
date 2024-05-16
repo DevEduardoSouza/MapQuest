@@ -9,7 +9,11 @@ import {
 
 import IconBattle from "../../assets/icons/battle-icon.png";
 
-const LoadingOverlay = () => {
+interface LoadingOverlayProps {
+  onClick?: () => void;
+}
+
+const LoadingOverlay = ({ onClick }: LoadingOverlayProps) => {
   return (
     <Overlay>
       <LoaderContainer>
@@ -17,7 +21,7 @@ const LoadingOverlay = () => {
         <ImageBattle src={IconBattle} />
       </LoaderContainer>
       <Text>Looking for a match...</Text>
-      <Button title="Return">
+      <Button title="Return" onClick={onClick}>
         <i className="bi bi-box-arrow-left"></i>
       </Button>
     </Overlay>

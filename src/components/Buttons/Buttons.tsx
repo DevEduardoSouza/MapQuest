@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   ButtonContainer,
   Button,
@@ -41,23 +41,30 @@ const CustomButton: React.FC<ButtonProps> = ({
 const Buttons = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+  const timeoutRef = useRef<number | undefined>(undefined);
 
   const handleBattleClick = () => {
     setIsLoading(true);
-
-    console.log("Oi");
-
     // Simulate a network request
-    setTimeout(() => {
+    timeoutRef.current = window.setTimeout(() => {
       setIsLoading(false);
+      
       // Logic to start the battle
-      navigate('/match')
-    }, 2000);
+      navigate("/match");
+    }, 4000);
+  };
+
+  const handleCloseOverlayClick = () => {
+    setIsLoading(false);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = undefined;
+    }
   };
 
   return (
     <>
-      {isLoading && <LoadingOverlay />}
+      {isLoading && <LoadingOverlay onClick={handleCloseOverlayClick} />}
 
       <ButtonsContainer>
         <div style={{ display: "flex", gap: "1rem" }}>
