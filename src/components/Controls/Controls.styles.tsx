@@ -8,7 +8,7 @@ export const ControlsStyled = styled.div<ButtonProps>`
   max-width: 60px;
   height: 250px;
 
-  z-index: 102;
+  z-index: 101;
 
   display: flex;
   flex-direction: column;
