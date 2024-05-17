@@ -5,6 +5,7 @@ import {
   PanoramaStyled,
   MatchContainer,
   HUD,
+  TopHud,
 } from "./Match.styles.tsx";
 
 import Time from "../../components/Time";
@@ -17,6 +18,8 @@ import { calculateLife } from "../../utils/calculateLife.ts";
 
 import { City } from "../../types/City.ts";
 import PlayerCard from "../../components/PlayerCard/PlayerCard.tsx";
+
+import IconBattle from "../../assets/icons/user-marker.png";
 
 function Map() {
   const [gameLife, setGameLife] = useState<number>(5000);
@@ -66,8 +69,11 @@ function Map() {
         const marker = new google.maps.Marker({
           position: null,
           map: map,
-          title: "Hello World!",
-          icon: "https://developers.google.com/static/maps/documentation/javascript/images/default-marker.png?hl=pt-br",
+          title: "Your Marker",
+          icon: {
+            url: IconBattle,
+            scaledSize: new google.maps.Size(20, 20),
+          },
           draggable: true,
         });
 
@@ -110,7 +116,7 @@ function Map() {
           lng: randomCityInitial.lng,
         },
         map: map,
-        title: "Starting Position",
+        title: "Result",
         icon: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png",
         draggable: false,
       });
@@ -149,12 +155,15 @@ function Map() {
       <PanoramaStyled id="panorama" />
 
       <HUD className="hud">
-        <PlayerCard
-          avatarUrl="https://cdn.icon-icons.com/icons2/2859/PNG/512/avatar_face_man_boy_male_profile_smiley_happy_people_icon_181657.png"
-          name="DreamBR"
-          progress={80}
-          points={9999}
-        />
+        <TopHud>
+          <PlayerCard
+            avatarUrl="https://cdn.icon-icons.com/icons2/2859/PNG/512/avatar_face_man_boy_male_profile_smiley_happy_people_icon_181657.png"
+            name="DreamBR"
+            progress={80}
+            points={9999}
+          />
+          <Time timeInit={2} />
+        </TopHud>
         <MatchContainer>
           <MapStyled id="map" />
           <Controls
@@ -164,14 +173,6 @@ function Map() {
           />
         </MatchContainer>
       </HUD>
-      <Time timeInit={2} />
-
-      {/* <UserProfile
-        name="John"
-        level={5}
-        srcImg="https://cdn.icon-icons.com/icons2/2859/PNG/512/avatar_face_man_boy_male_profile_smiley_happy_people_icon_181657.png"
-        life={gameLife}
-      /> */}
     </Container>
   );
 }

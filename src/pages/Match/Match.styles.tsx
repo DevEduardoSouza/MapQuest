@@ -46,3 +46,9 @@ export const MapStyled = styled.div`
   z-index: 101;
   border-radius: 1rem;
 `;
+
+export const TopHud = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: absolute;
+  left: 0;
   display: flex;
   align-items: center;
 
@@ -12,7 +14,7 @@ export const Container = styled.div`
 
   transform: skew(-15deg);
   margin-left: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
 
   & * {
     transform: skew(5deg);
