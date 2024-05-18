@@ -1,15 +1,17 @@
 import { ControlsStyled, Button } from "./Controls.styles.tsx";
 
 interface ControlsProps {
-  resetToInitialPosition: () => void; // Define the type of the prop
-  finish: () => void; // Define the type of the prop
-  onNextMapClick: () => void;
+  resetToInitialPosition?: () => void; // Define the type of the prop
+  finish?: () => void; // Define the type of the prop
+  onNextMapClick?: () => void;
+  navigateToHome?: () => void;
 }
 
 const Controls = ({
   resetToInitialPosition,
   finish,
   onNextMapClick,
+  navigateToHome
 }: ControlsProps) => {
   return (
     <ControlsStyled>
@@ -29,7 +31,7 @@ const Controls = ({
       <Button backgroundColor="#2A8AE9" onClick={onNextMapClick}>
         <i className="bi bi-exclamation-triangle"></i>
       </Button>
-      <Button backgroundColor="#2A8AE9" onClick={finish}>
+      <Button backgroundColor="#2A8AE9" onClick={navigateToHome}>
         <i className="bi bi-box-arrow-left"></i>
       </Button>
     </ControlsStyled>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   MapStyled,
@@ -20,6 +21,7 @@ import { City } from "../../types/City.ts";
 import PlayerCard from "../../components/PlayerCard/PlayerCard.tsx";
 
 import IconBattle from "../../assets/icons/user-marker.png";
+import Modal from "../../components/Modal/Modal.tsx";
 
 function Map() {
   const [gameLife, setGameLife] = useState<number>(5000);
@@ -32,7 +34,11 @@ function Map() {
   const [marker, setMarker] = useState<google.maps.Marker | null>(null);
   const [nextMap, setNextMap] = useState<boolean>(false);
 
+  const [showModalToHome, setShowModalToHome] = useState<boolean>(false);
+
   const cityService = new CityService();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const initialize = async () => {
@@ -150,8 +156,29 @@ function Map() {
     setNextMap(!nextMap);
   };
 
+  const openModalToHome = (): void => {
+    setShowModalToHome(true);
+  };
+
+  const closeModalToHome = (): void => {
+    setShowModalToHome(false);
+  };
+
+  const confirmNavigateToHome = (): void => {
+    navigate("/home");
+  };
+
   return (
     <Container className="cont">
+      {showModalToHome && (
+        <Modal
+          msg={"Tem certeza de que deseja abandonar a partida?"}
+          title={"Sair da Partida"}
+          onConfirm={confirmNavigateToHome}
+          onClose={closeModalToHome}
+        />
+      )}
+
       <PanoramaStyled id="panorama" />
 
       <HUD className="hud">
@@ -167,6 +194,7 @@ function Map() {
         <MatchContainer>
           <MapStyled id="map" />
           <Controls
+            navigateToHome={openModalToHome}
             resetToInitialPosition={resetToInitialPosition}
             finish={finish}
             onNextMapClick={handleNextMapClick}
