@@ -37,11 +37,12 @@ export const MatchContainer = styled.div`
   display: flex;
   gap: 0.5rem;
   margin: 1.5rem;
+  padding-bottom: 3.5rem;
 `;
 
 export const MapStyled = styled.div`
   pointer-events: auto;
-  width: 250px;
+  width: 300px;
   height: 250px;
   z-index: 101;
   border-radius: 1rem;
