@@ -3,4 +3,5 @@ export interface IPlayerCard {
   name?: string;
   progress?: number;
   points?: number;
+  life?: number | string;
 }

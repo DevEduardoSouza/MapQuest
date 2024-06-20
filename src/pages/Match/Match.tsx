@@ -168,6 +168,14 @@ function Map() {
     navigate("/home");
   };
 
+  const getLife = (): string => {
+    return `${gameLife}/5000`;
+  };
+
+  const getProgress = (): number => {
+    return (gameLife / 5000) * 100;
+  };
+  
   return (
     <Container className="cont">
       {showModalToHome && (
@@ -186,8 +194,9 @@ function Map() {
           <PlayerCard
             avatarUrl="https://cdn.icon-icons.com/icons2/2859/PNG/512/avatar_face_man_boy_male_profile_smiley_happy_people_icon_181657.png"
             name="DreamBR"
-            progress={80}
+            progress={getProgress()}
             points={9999}
+            life={getLife()}
           />
           <Time timeInit={2} />
         </TopHud>

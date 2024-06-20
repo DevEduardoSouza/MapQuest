@@ -14,7 +14,13 @@ import { IPlayerCard } from "../../types/PlayerCard.ts";
 
 import IconTrophy from "../../assets/icons/trophy-icon.png";
 
-const PlayerCard = ({ avatarUrl, name, points, progress }: IPlayerCard) => {
+const PlayerCard = ({
+  avatarUrl,
+  name,
+  points,
+  progress,
+  life,
+}: IPlayerCard) => {
   return (
     <Container>
       <Avatar>
@@ -26,12 +32,12 @@ const PlayerCard = ({ avatarUrl, name, points, progress }: IPlayerCard) => {
           <PlayerPoints>
             {points}
             <TrophyIcon>
-                <img src={IconTrophy} alt="" />
+              <img src={IconTrophy} alt="" />
             </TrophyIcon>
           </PlayerPoints>
         </div>
         <ProgressBarContainer>
-          <ProgressBar percentage={progress} />
+          <ProgressBar percentage={progress}>{life}</ProgressBar>
         </ProgressBarContainer>
       </PlayerInfo>
     </Container>

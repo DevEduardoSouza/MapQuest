@@ -80,15 +80,20 @@ export const TrophyIcon = styled.div`
 `;
 
 export const ProgressBarContainer = styled.div`
-  background-color: #b7e8fc;
+  background-color: #ffcbcd;
   border-radius: 5px;
   margin-top: 0.5rem;
   overflow: hidden;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
 `;
 
 export const ProgressBar = styled.div<{ percentage: number }>`
   height: 20px;
-  background-color: #1cb0f7;
+  background-color: #fc6974;
   width: ${(props) => props.percentage}%;
   border-radius: 5px;
 `;
