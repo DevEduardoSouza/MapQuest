@@ -30,7 +30,15 @@ const CustomButton: React.FC<ButtonProps> = ({
 }) => {
   return (
     <ButtonContainer>
-      <Button bgColor={bgColor} onClick={onClick}>
+      <Button
+        bgColor={bgColor}
+        onClick={onClick}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <Icon src={iconSrc} alt={`${text} icon`} />
         <span>{text}</span>
       </Button>
@@ -48,7 +56,7 @@ const Buttons = () => {
     // Simulate a network request
     timeoutRef.current = window.setTimeout(() => {
       setIsLoading(false);
-      
+
       // Logic to start the battle
       navigate("/match");
     }, 4000);

@@ -13,6 +13,7 @@ import {
 import { IPlayerCard } from "../../types/PlayerCard.ts";
 
 import IconTrophy from "../../assets/icons/trophy-icon.png";
+import Bar from "../Bar/ProgressBar.tsx";
 
 const PlayerCard = ({
   avatarUrl,
@@ -38,6 +39,7 @@ const PlayerCard = ({
         </div>
         <ProgressBarContainer>
           <ProgressBar percentage={progress}>{life}</ProgressBar>
+          {/* <Bar limit={500}  currentValue={progress} /> */}
         </ProgressBarContainer>
       </PlayerInfo>
     </Container>

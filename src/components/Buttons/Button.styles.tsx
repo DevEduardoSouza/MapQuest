@@ -1,4 +1,10 @@
 import styled from "styled-components";
+import { motion } from 'framer-motion';
+
+interface ButtonProps extends HTMLMotionProps<'button'> {
+  bgColor?: string;
+}
+
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -12,7 +18,7 @@ export const ButtonsContainer = styled.div`
   padding: 1rem 2rem;
 `;
 
-export const Button = styled.button<{ bgColor?: string }>`
+export const Button = styled(motion.button)<ButtonProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
